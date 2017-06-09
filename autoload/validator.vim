@@ -86,16 +86,18 @@ function! s:import_python()
 endfunction
 
 
-function! s:ignore(ft)
+function! s:ignore(ft, bn)
   return pumvisible() || !empty(&buftype)
         \ || index(g:validator_ignore, a:ft) != -1
+        \ || index(g:validator_ignore, a:bn) != -1
         \ || &readonly
 endfunction
 
 
 function! s:check(instant)
   let ft = &filetype
-  if s:ignore(ft)
+  let bn = bufname('%')
+  if s:ignore(ft, bn)
     return
   endif
 

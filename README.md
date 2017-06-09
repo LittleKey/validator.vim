@@ -68,10 +68,10 @@ let g:validator_filetype_map = {'<alias>': '<filetype_supported>'}
 let g:validator_filetype_map = {"python.django": "python"}
 ```
 
-Ignore file types:
+Ignore file types and buffer name (support part match, just type keyword as well):
 
 ```vim
-let g:validator_ignore = ['<filetype>']
+let g:validator_ignore = ['<filetype>', '<bufname>']
 ```
 
 To customize the signs colors, you can use the following groups:
